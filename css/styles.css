@@ -1,0 +1,273 @@
+/* ==========================================================================
+   VARIABLES Y CONFIGURACIÓN INICIAL (Inspiración: Guía del Bosque)
+   ========================================================================== */
+:root {
+    --color-principal: #2c4a3e;     /* Verde pino orgánico */
+    --color-secundario: #a3b899;    /* Verde musgo suave */
+    --color-oscuro: #111e25;        /* Azul noche/negro profundo para el circuito nocturno */
+    --color-tierra: #dfd5c6f6;        /* Arena/piedra de río para fondos claros */
+    --color-claro: #fcfbfaee;         /* Blanco roto orgánico */
+    --color-texto: #2b2b2b;
+    --fuente-titulos: 'Georgia', serif;
+    --fuente-cuerpo: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    color: var(--color-texto);
+    background-color: var(--color-claro);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    color: var(--color-principal);
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN (Menú Hamburguesa Pure CSS - No JS)
+   ========================================================================== */
+.header-sitio {
+    background-color: var(--color-claro);
+    border-bottom: 1px solid var(--color-secundario);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo a {
+    font-family: var(--fuente-titulos);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu a:hover, .menu a.active {
+    color: var(--color-principal);
+    border-bottom: 2px solid var(--color-principal);
+}
+
+/* Mecanismo de menú responsive sin JS */
+.menu-checkbox, .menu-icono {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-claro);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid var(--color-secundario);
+        gap: 1.5rem;
+    }
+    
+    .menu-icono {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--color-principal);
+    }
+    
+    /* Cuando el checkbox oculto se activa mediante el label, se muestra el menú */
+    .menu-checkbox:checked ~ .menu {
+        display: flex;
+    }
+}
+
+/* ==========================================================================
+   COMPONENTES DE IMÁGENES DE FONDO (Safe Backgrounds)
+   ========================================================================== */
+.bg-imagen {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: var(--color-secundario); /* Resguardo por si la imagen falla */
+    position: relative;
+}
+
+/* Capa oscura superior para legibilidad de textos */
+.bg-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.bg-overlay-dark::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(17, 30, 37, 0.75); /* Filtro azul noche */
+    z-index: 1;
+}
+
+.bg-imagen > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   ESTILOS GENERALES DE ESTRUCTURA Y BLOQUES
+   ========================================================================== */
+.seccion {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-claro);
+    padding: 2rem;
+}
+
+.hero h1 {
+    color: var(--color-claro);
+    font-size: 3rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--color-principal);
+    color: var(--color-claro);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #1b3028;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    align-items: center;
+}
+
+.tarjeta-img {
+    min-height: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card-circuito {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-circuito-body {
+    padding: 2rem;
+}
+
+/* Variación tema nocturno para circuitos */
+.bloque-nocturno {
+    background-color: var(--color-oscuro);
+    color: var(--color-claro);
+}
+.bloque-nocturno h2, .bloque-nocturno h3 {
+    color: var(--color-secundario);
+}
+
+/* Tablas y Formularios */
+.tabla-info {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+.tabla-info th, .tabla-info td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-secundario);
+    text-align: left;
+}
+
+.form-grupo {
+    margin-bottom: 1.5rem;
+}
+.form-grupo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--color-secundario);
+    border-radius: 4px;
+    background-color: var(--color-claro);
+}
+
+.footer-sitio {
+    background-color: var(--color-principal);
+    color: var(--color-claro);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+.footer-detail {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+.footer-atribution {
+    font-size: 0.8rem;
+     opacity: 0.7; 
+     margin-top: 0.5rem;
+}
+
+.footer-atribution a {
+    color: var(--color-claro);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Voces del Chimehuín</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header-sitio">
+        <div class="nav-contenedor">
+            <div class="logo"><a href="index.html">Voces del Chimehuín</a></div>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icono">&#9776;</label>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="circuitos.html">Circuitos</a></li>
+                <li><a href="comunidad.html">Sostenibilidad</a></li>
+                <li><a href="contacto.html" class="active">Reservas</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="seccion grid-2" style="padding-top: 6rem;">
+        <div>
+            <h2>Planificá tu experiencia</h2>
+            <p style="margin-bottom: 2rem;">Completá el formulario para consultar disponibilidad de cupos en nuestras salidas. Recordá que operamos con un máximo de 15 personas por grupo para preservar el entorno y la personalización.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-grupo">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" class="form-control" required placeholder="Tu nombre">
+                </div>
+                <div class="form-grupo">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" class="form-control" required placeholder="tu@email.com">
+                </div>
+                <div class="form-grupo">
+                    <label for="producto">Experiencia de Interés</label>
+                    <select id="producto" class="form-control">
+                        <option value="diurno">Circuito Diurno: Tardes en el Chimehuín</option>
+                        <option value="nocturno">Circuito Nocturno: Voces del Río</option>
+                        <option value="completo">Ambos Circuitos (Experiencia Integrada)</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensaje">Mensaje o Consultas Adicionales</label>
+                    <textarea id="mensaje" class="form-control" rows="4" placeholder="Contanos cuándo visitás la región..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="border: none; cursor: pointer;">Enviar Solicitud</button>
+            </form>
+        </div>
+        
+        <div>
+            <h2>Puntos de Encuentro</h2>
+            <p style="margin-bottom: 1.5rem;">Nuestras actividades inician en zonas habilitadas de la costanera de Junín de los Andes y las cercanías del Camping Municipal. Coordinamos los detalles exactos al confirmar tu lugar.</p>
+            <div class="bg-imagen tarjeta-img" style="background-image: url('img/Junin-de-los-Andes-1238904432.jpg');"></div>
+        </div>
+    </main>
+
+    <footer class="footer-sitio">
+        <p>© 2026 Voces del Chimehuín. Trabajo Integrador Final - Marina Rodríguez & Eva Paredes.</p>
+        <p class="footer-detail">Facultad de Turismo – CRUSMA – UNCO.</p>
+        <p class="footer-atribution">Diseño y Desarrollo Web: <a href="https://jandestech.com.ar" target="_blank">JAndesTech</a></p>
+    </footer>
+
+</body>
+</html>
