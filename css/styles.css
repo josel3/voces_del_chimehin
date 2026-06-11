@@ -290,3 +290,96 @@ h1, h2, h3 {
     font-weight: bold;
     font-size: 0.9rem;
 }
+
+/* ==========================================================================
+   SECCIÓN TESTIMONIOS (Pure CSS - No JS)
+   ========================================================================== */
+.seccion-testimonios {
+    background-color: var(--color-claro);
+}
+
+.testimonios-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.testimonio-card {
+    background-color: var(--color-secundario);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border-left: 4px solid var(--color-secundario);
+    display: flex;
+    align-items: center; /* Alínea verticalmente avatar y quote */
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.testimonio-card:hover {
+    transform: translateY(-2px);
+}
+
+.testimonio-avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-secundario);
+    flex-shrink: 0; /* Evita que el avatar se deforme en pantallas chicas */
+}
+
+.testimonio-quote {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+}
+
+.testimonio-quote p {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.testimonio-quote cite {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    font-style: normal;
+}
+
+/* Lógica del Toggle sin JavaScript */
+.testimonios-checkbox {
+    display: none; /* Escondemos el input */
+}
+
+/* Por defecto, las tarjetas extra están ocultas */
+.testimonio-card.extra {
+    display: none;
+}
+
+/* Cuando el checkbox está activo (checked) mostramos las extras con flex para el layout interno */
+.testimonios-checkbox:checked ~ .testimonios-contenedor .testimonio-card.extra {
+    display: flex;
+}
+
+/* Centrado del botón disparador */
+.testimonio-boton-wrapper {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Control dinámico de los textos del botón */
+.btn .texto-ver-menos {
+    display: none;
+}
+
+/* Si se marca el checkbox, invertimos la visibilidad de los textos */
+.testimonios-checkbox:checked ~ .testimonio-boton-wrapper .btn .texto-ver-mas {
+    display: none;
+}
+
+.testimonios-checkbox:checked ~ .testimonio-boton-wrapper .btn .texto-ver-menos {
+    display: inline;
+}
