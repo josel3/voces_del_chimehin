@@ -82,7 +82,7 @@ h1, h2, h3 {
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 876px) {
     .menu {
         display: none;
         flex-direction: column;
@@ -107,6 +107,10 @@ h1, h2, h3 {
     .menu-checkbox:checked ~ .menu {
         display: flex;
     }
+
+    /* da vuelta las tarjetas en circuitos */
+    .sink-on-collapse{ grid-row: 2; }
+
 }
 
 /* ==========================================================================
@@ -201,10 +205,25 @@ h1, h2, h3 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-circuito-body {
     padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-circuito-body p {
+    margin-bottom: 1.5rem;
+}
+
+.card-circuito-body > .btn {
+    margin-top: auto;
+    width: fit-content;
 }
 
 /* Variación tema nocturno para circuitos */
